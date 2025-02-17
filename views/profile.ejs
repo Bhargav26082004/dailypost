@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="w-full min-h-screen  bg-zinc-900 text-white p-7"> 
+    <div class="w-full flex justify-between">
+        <a class=" bg-yellow-500 text-black rounded-full  mb-5 px-3  py-2 text-sm " href="/profilepic">change profile </a>
+<a href="/logout" class="bg-red-500 rounded-md px-3 py-2 text-sm mb-2 inline-block"> logout </a>
+    </div>
+     
+    <div class="flex gap-4 ">
+
+        <div class="w-12 h-12    border-2 border-white  ">
+            <img class="w-full h-full  object-cover  rounded-md overflow-hidden"   src="/images/<%=userdata.profilepic %>" alt="profilepic">
+            
+        </div>
+        <h3 class="mb-7 text-3xl">
+            profile 
+        </h3>
+    </div>
+<h5 class="mb-5">
+Now You Can Create Post
+
+</h5>
+<form action="/post"  method="post">
+     <textarea  class= 'resize-none bg-transparent border-2  border-zinc-700  rounded-md  w-1/3 p-4 outline-none' placeholder="whats on your mind"  rows="7" cols="30" name="content"></textarea>
+     <input  type="submit" class="px-3 py-2 bg-blue-500 block rounded-md mt-3 w-40" > 
+</form>
+
+
+            <div class="posts mt-10">
+         <h3 class="text-zinc-400 mb-2 mt-4 text-2xl px-20">
+            Your Post
+
+         </h3>
+         <div class="postcontainer">
+            <% userdata.posts.reverse().forEach(function(post){ %>
+             
+                <div class="post w-1/3 p-5 mb-3  border-2 border-zinc-700 rounded-md ">
+                    
+                    <h4 class="text-blue-500  px-3  ">@<%=userdata.username %></h4>
+                    <p class="px-3 py-1 m-1 text-sm trackin-tight"><%=post.content %></p>
+                    <SMAll class="mt-2 inline-block px-5 "> <%= post.likes.length%>likes</SMAll>
+            
+                    <div class="btn flex gap-5  px-4 py-3 ">
+                        <a href="/like/<%= post._id %>" class="text-blue-500 ">
+                            <%= post.likes.indexOf(userdata._id) === -1 ? "Like" : "Unlike" %>
+                        </a>
+                        <a href="/edit/<%= post._id %>" class="text-zinc-500">edit</a>
+                        <a href="/delete/<%= post._id %>" class="text-zinc-500">delete</a>
+                    </div>
+                    
+                </div>
+                    <% }) %>
+                    
+                
+    </div>
+            </div>
+</body>
+</html>

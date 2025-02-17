@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="w-full h-screen bg-zinc-900 text-white p-10">
+        <h1 class="px-4 py-10 text-3xl">create account </h1>
+        <form action="/register" method="post" >
+    <input type="text" name="username"  class="px-5 py-2  mx-1 my-2rounded-md outline-none bg-transparont border-2  border-zinc-700 " placeholder="userName">
+    <input type="text" name="name"  class="px-5 py-2  mx-1 my-2rounded-md outline-none bg-transparont border-2  border-zinc-700 " placeholder="Name">
+    <input type="email" name="email"  class="px-5 py-2 mx-1 my-2 rounded-md outline-none bg-transparont border-2  border-zinc-700 " placeholder="Email">
+    <input type="password" name="password" class="px-3 py-2  mx-1 my-2rounded-md outline-none bg-transparont border-2  border-zinc-700 " placeholder="Password">
+    <input type="age" name="age" class="px-5 py-2 mx-1 my-2 rounded-md outline-none bg-transparont border-2  border-zinc-700 " placeholder="Age">
+    <input type="submit" class="px-4 py-2 mx-1 my-2 bg-blue-500 rounded-md outline-none " value="create account">
+<br>
+<br>
+<br>
+<div class="px-2 py-2 mx-1 my-2 bg-yellow-500 rounded-md outline-none w-40">
+
+    <a href="/login"> login page </a>
+</div>
+</form>       
+    </div>
+    
+</body>
+</html>
